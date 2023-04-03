@@ -1,55 +1,42 @@
-// User input
-var input = "";
-
-// Current char in the string
-var char: Character;
-
-// Determine if first value has been initialized
-var isInit = false;
-
-// Most frequent char
-var mostFrequent: Character;
-mostFrequent = "a";
-
-//  All characters and their counts
-var characters = [Character: Int]();
-
-func mostFrequentCharacter(_ input: String) {
-  // Loop through chars in the passed String
-  for char in input {
-
-    // Check if first iteration of loop
-    if (isInit) {
-      characters[char] = (characters[char] ?? 0) + 1;
-      if (characters[char]! > characters[mostFrequent]!) {
-        mostFrequent = char;
-      } 
-    } else if (!isInit) {
-        characters[char] = 1;
-        mostFrequent = char;
-        isInit = true;
-    } 
-  } 
-  // Print most frequent char and its count
-   print("The most frequently occuring character is \(mostFrequent), which occured " +
-      "\(characters[mostFrequent]!) times.");
-}
-
-// Reset values to allow new strings to be checked
-func resetValues() {
-  characters.removeAll();
-  isInit = false;
-}
-
-// Allow the user to keep inputing strings, and checking them until
-// "exit" is entered.
-while (input != "exit") {
-  print("Enter the string to be checked: ");
-  print("Type exit to end: ");
-  input = readLine()!;
-  if (input != "exit") {
-    mostFrequentCharacter(input);
-    resetValues();
+for x in 1...100 {
+  if (x % 2 == 0) {
+    print("Number \(x) is even ");
+  } else {
+    print("Number \(x) is odd")
   }
 }
 
+var iteration: Int = 2;
+var number: Int = 0;
+
+print("Please enter a number to check: ");
+number = Int(readLine()!)!; 
+
+while (true) {
+
+
+  
+  for x in 2...<number {
+    if (number % x == 0) {
+      print("\(number) is not prime");
+      break;
+    }
+  }
+  
+  if (number != iteration && number % iteration == 0) {
+    print("\(number) is not a prime number");
+    break;
+  } else if (number == iteration){
+    print("\(number) is a prime number");
+  }
+  
+  iteration += 1;
+}
+
+func isPrime(_ number: Int) -> String {
+    if (number < 2) {
+    print("\(number) is not prime");
+    
+  }
+  
+}
